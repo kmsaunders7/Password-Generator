@@ -8,27 +8,64 @@
  var lowerCaseCharacters = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"]
 // function to prompt user of password options
 
-function getPasswordOptions() {
 
 // Var prompt to store length of password from user
-
+  var length = parseInt(prompt('How many characters would you like your new password to contain?? Please pick between 8 and 128'))
 //Check to see if password length is correct (between 8-128)
+
 //If less than 8
+
+  if (length < 8) {
+  alert = "Number selected must be 8 or more";
+  return;
+  }
+
 //If more than 128
+
+  if (length > 128) {
+    alert = "Number selected must be 128 or less";
+    return
+  }
 
 //Check to see if user input is a numerical value
 
 //Confirm special characters
+  var hasSpecialChar = confirm('Would you like to include $pec!@l ch@r@cters? Click OK');
 
 //Confirm numeric characters
+  var hasNunericChar = confirm('Would you like to include numb3rs? Click OK');
+
 
 //Confirm lowercase characters
+  var hasLowercaseChar = confirm('Would you like to include lowercase lettering? Click OK');
 
 //Confirm uppercase characters
+  var hasUppercaseChar = confirm('Would you like to inlcude UPPERCASE LETTERING? Click OK');
 
 //Ends if user does not include any types of character & ALERTS
 
+  if (
+    hasSpecialChar === false &&
+    hasNunericChar === false &&
+    hasLowercaseChar === false &&
+    hasUppercaseChar === false
+  ) {
+    alert = "Must select at least one type of character";
+    return;
+  }
+
 //Object with user input options
+
+  var passwordOptions = {
+  length: length,
+  hasSpecialChar: hasSpecialChar,
+  hasNunericChar: hasNunericChar,
+  hasLowercaseChar: hasLowercaseChar,
+  hasUppercaseChar: hasUppercaseChar
+  }
+  return passwordOptions;
+
+
 
 //Function for getting random password from all the arrays
 function getRandom(arr) {
@@ -38,11 +75,19 @@ function getRandom(arr) {
   return randomPassword;
 }
 
+//Function to generate password following all of user input
+
+function generatePassword {
+
+
+
 
 
 
 
 }
+
+
 
 
 
