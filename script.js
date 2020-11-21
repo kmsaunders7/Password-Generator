@@ -78,17 +78,56 @@ function getRandom(arr) {
 //Function to generate password following all of user input
 
 function generatePassword {
+  var options = getPasswordOptions();
+  var result = [];
 
 
+  //Array to store password option characters
+  var possibleCharacters = [];
+
+  //Array to for guaranteed characters to be used
+
+  var guaranteedCharacters = [];
+
+  //Push different types of character options into the guaranteed array
+
+  if (options.hasSpecialChar) {
+    possibleCharacters = possibleCharacters.concat(specialCharacters);
+    guaranteedCharacters.push(getRandom(specialCharacters));
+  }
+
+  if (options.hasNunericChar) {
+    possibleCharacters = possibleCharacters.concat(numericCharacters);
+    guaranteedCharacters.push(getRandom(numericCharacters));
+  }
+
+  if (options.hasLowercaseChar) {
+    possibleCharacters = possibleCharacters.concat(lowerCaseCharacters);
+    guaranteedCharacters.push(getRandom(lowerCaseCharacters));
+  }
+
+  if (options.hasUppercaseChar) {
+    possibleCharacters = possibleCharacters.concat(upperCaseCharacters);
+    guaranteedCharacters.push(getRandom(upperCaseCharacters));
+  }
+
+  //Loop to match the possible characters with requested length
+
+  for (var i = 0; i < possibleCharacters.length; i++) {
+    result[i] = possibleCharacters[i];
+  }
+
+//Mixed with guaranteed characters
+  for (var i = 0; i < guaranteedCharacters.length; i++) {
+    result[i] = guaranteedCharacters[i];
+  }
 
 
-
-
+ //Make the result return as a string
+ 
+ return result.join(' ');
 
 }
-
-
-
 
 
 // Assignment Code
