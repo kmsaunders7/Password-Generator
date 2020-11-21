@@ -72,7 +72,7 @@ function getPasswordOptions() {
 function getRandom(arr) {
   var randomIndex = Math.floor(Math.random() * arr.length);
   var randomPassword = arr[randomIndex];
-
+console.log(randomIndex, arr)
   return randomPassword;
 }
 
@@ -113,10 +113,11 @@ function generatePassword() {
   }
 
   //Loop to match the possible characters with requested length
+console.log(possibleCharacters)
 
   for (var i = 0; i < options.length; i++) {
-    var possibleCharacters= getRandom(possibleCharacters);
-    result.push(possibleCharacters);
+    var possibleCharacterRan = getRandom(possibleCharacters);
+    result.push(possibleCharacterRan);
   }
 
 
