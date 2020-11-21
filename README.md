@@ -5,7 +5,7 @@ User will follow the prompts and at the end will get a custom generated password
 
 ## 
 
-![Image of Password Generator Webpage]
+![Image of Password Generator Webpage](./assets\PasswordGenImage.JPG)
 
 ## Features
 
