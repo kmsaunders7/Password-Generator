@@ -5,7 +5,7 @@ Following the user's prompts a password will be created...
 
 ## SCREENSHOT
 
-![Image of Password Generator Webpage](./assets\PasswordGenImage.JPG)
+![Image of Password Generator Webpage](./assets/PasswordGenImage.JPG)
 
 ## Features
 
