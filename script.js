@@ -8,23 +8,24 @@
  var lowerCaseCharacters = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"]
 // function to prompt user of password options
 
+function getPasswordOptions() {
 
 // Var prompt to store length of password from user
-  var length = parseInt(prompt('How many characters would you like your new password to contain?? Please pick between 8 and 128'))
+  var length = parseInt(prompt('How many characters would you like your new password to contain?? Please pick between 8 and 128'));
 //Check to see if password length is correct (between 8-128)
 
 //If less than 8
 
   if (length < 8) {
-  alert = "Number selected must be 8 or more";
+  alert("Number selected must be 8 or more");
   return;
   }
 
 //If more than 128
 
   if (length > 128) {
-    alert = "Number selected must be 128 or less";
-    return
+    alert("Number selected must be 128 or less");
+    return;
   }
 
 //Check to see if user input is a numerical value
@@ -50,7 +51,7 @@
     hasLowercaseChar === false &&
     hasUppercaseChar === false
   ) {
-    alert = "Must select at least one type of character";
+    alert("Must select at least one type of character");
     return;
   }
 
@@ -62,14 +63,14 @@
   hasNunericChar: hasNunericChar,
   hasLowercaseChar: hasLowercaseChar,
   hasUppercaseChar: hasUppercaseChar
-  }
+  };
   return passwordOptions;
-
+}
 
 
 //Function for getting random password from all the arrays
 function getRandom(arr) {
-  var randomIndex = Math.floor[Math.random() * arr.length];
+  var randomIndex = Math.floor(Math.random() * arr.length);
   var randomPassword = arr[randomIndex];
 
   return randomPassword;
@@ -77,7 +78,7 @@ function getRandom(arr) {
 
 //Function to generate password following all of user input
 
-function generatePassword {
+function generatePassword() {
   var options = getPasswordOptions();
   var result = [];
 
@@ -113,9 +114,11 @@ function generatePassword {
 
   //Loop to match the possible characters with requested length
 
-  for (var i = 0; i < possibleCharacters.length; i++) {
-    result[i] = possibleCharacters[i];
+  for (var i = 0; i < options.length; i++) {
+    var possibleCharacters= getRandom(possibleCharacters);
+    result.push(possibleCharacters);
   }
+
 
 //Mixed with guaranteed characters
   for (var i = 0; i < guaranteedCharacters.length; i++) {
@@ -125,7 +128,7 @@ function generatePassword {
 
  //Make the result return as a string
  
- return result.join(' ');
+ return result.join('');
 
 }
 
